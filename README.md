@@ -9,6 +9,7 @@ Enlace al repositorio de Github asociado a la práctica   [ull-esit-inf-dsi-23-2
 
 [![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote?branch=main)
 
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2324_ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2324_ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote)
 # Introducción
 
 En esta práctica, se aborda la implementación de una aplicación cliente-servidor para coleccionistas de cartas Magic, extendiendo el trabajo realizado en la Práctica 9. Se desarrolla un servidor y un cliente utilizando sockets proporcionados por el módulo net de Node.js. Los usuarios interactúan exclusivamente con el cliente a través de la línea de comandos, mientras que el servidor gestiona las operaciones sobre las cartas almacenadas en ficheros JSON en el sistema de ficheros.
