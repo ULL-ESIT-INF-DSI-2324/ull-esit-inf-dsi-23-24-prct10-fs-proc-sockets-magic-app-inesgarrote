@@ -3,13 +3,14 @@
 # Práctica 10 - Aplicación cliente-servidor para coleccionistas de cartas Magic
 
 Realizada por Inés Garrote Fontenla [alu0101512297@ull.edu.es](alu0101512297@ull.edu.es)  
-Enlace al repositorio de Github asociado a la práctica   [ull-esit-inf-dsi-23-24-prct10-vscode-inesgarrote](https://github.com/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote.git)
+Enlace al repositorio de Github asociado a la práctica [ull-esit-inf-dsi-23-24-prct10-vscode-inesgarrote](https://github.com/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote.git)
 
 [![Tests](https://github.com/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote/actions/workflows/node.js.yml/badge.svg)](https://github.com/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote/actions/workflows/node.js.yml)
 
 [![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2324/ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote?branch=main)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2324_ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote&metric=bugs)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2324_ull-esit-inf-dsi-23-24-prct10-fs-proc-sockets-magic-app-inesgarrote)
+
 # Introducción
 
 En esta práctica, se aborda la implementación de una aplicación cliente-servidor para coleccionistas de cartas Magic, extendiendo el trabajo realizado en la Práctica 9. Se desarrolla un servidor y un cliente utilizando sockets proporcionados por el módulo net de Node.js. Los usuarios interactúan exclusivamente con el cliente a través de la línea de comandos, mientras que el servidor gestiona las operaciones sobre las cartas almacenadas en ficheros JSON en el sistema de ficheros.
@@ -34,7 +35,14 @@ La aplicación debe permitir la interacción simultánea de múltiples usuarios,
 3. La lógica relacionada con el sistema de ficheros reside en el servidor y se basa en el uso del API asíncrona de Node.js.
 4. El cliente se encarga del procesamiento de los argumentos de línea de comandos utilizando el paquete yargs.
 5. Se implementan pruebas unitarias para verificar el correcto funcionamiento del código y para manejar entradas no válidas o inesperadas.
+
 # Ejercicio clase
+
+Durante la sesión de prácticas se planteó modificar una función para implementarla siguiendo el patrón de callback. Después, se sustituyó la invocación de métodos del API síncrona de Node.js de gestión el sistema de ficheros, por llamadas a los métodos equivalentes del API asíncrona basada en callback. Tambíen había que realizar pruebas del método asíncrono.
+
+Modifiqué el método modificar carta, al añadir el patrón callback a este método tuve que mofidicar otros tambíen, como el método añadir carta, eliminar carta, listar cartas y mostrar carta, guardar coleccióm y cargar colección.
+
+Tuve un error, porque solo tuve en cuenta los mensaje de error, pero no los mensajes de éxito. Por último, no me dió tiempo a realizar las pruebas de los métodos asíncronos.
 
 # Conclusión
 

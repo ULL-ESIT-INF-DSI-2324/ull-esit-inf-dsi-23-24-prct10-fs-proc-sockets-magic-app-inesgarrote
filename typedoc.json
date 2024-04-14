@@ -1,7 +1,4 @@
 {
-    "entryPoints": [
-      
-        
-    ],
-    "out": "./docs"
-  }
+  "entryPoints": [],
+  "out": "./docs"
+}
