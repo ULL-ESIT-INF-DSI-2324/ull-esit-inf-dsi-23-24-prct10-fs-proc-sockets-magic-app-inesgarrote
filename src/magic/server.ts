@@ -1,7 +1,7 @@
-import net from "net";
-import { EventEmitter } from "events";
-import chalk from "chalk";
-import { Carta } from "./carta.js";
+import net from "net"; // crear el servidor tcp
+import { EventEmitter } from "events"; // para manejar eventos
+import chalk from "chalk"; // para dar color a los mensajes
+import { Color, Tipo, Rareza, Carta } from "./carta.js";
 import { Usuario } from "./usuario.js";
 
 // Creamos una instancia de EventEmitter para manejar eventos
@@ -10,13 +10,24 @@ const eventEmitter = new EventEmitter();
 // Creamos un mapa para mantener un registro de usuarios conectados
 const connectedUsers = new Map<string, net.Socket>();
 
-// Clase para manejar las operaciones con las cartas
+/**
+ * @brief Clase CartaManager
+ * @details Clase para gestionar las operaciones de las cartas
+ */
 class CartaManager extends EventEmitter {
+  /**
+   * @brief Constructor de la clase CartaManager
+   * @details Constructor de la clase CartaManager
+   */
   constructor() {
     super();
   }
 
-  // Método para procesar los comandos recibidos del cliente
+  /**
+   * @brief Método para procesar los comandos recibidos del cliente
+   * @param socket 
+   * @param mensaje 
+   */
   public procesarComando(socket: net.Socket, mensaje: string) {
     const partes = mensaje.trim().split(" ");
     const comando = partes[0].toLowerCase();
@@ -44,7 +55,11 @@ class CartaManager extends EventEmitter {
     }
   }
 
-  // Método para agregar una carta
+  /**
+   * @brief Método para agregar una carta
+   * @param socket 
+   * @param args 
+   */
   private agregarCarta(socket: net.Socket, args: string[]) {
     // Extraer los argumentos del comando
     const [usuario, id, nombre, costeMana, color, tipo, rareza, textoReglas, valorMercado, fuerza, resistencia, marcasLealtad] = args;
@@ -60,7 +75,11 @@ class CartaManager extends EventEmitter {
     }
   }
 
-  // Método para listar las cartas de un usuario
+  /**
+   * @brief Método para listar las cartas de un usuario
+   * @param socket 
+   * @param args 
+   */
   private listarCartas(socket: net.Socket, args: string[]) {
     const [usuario] = args;
     const usuarioSocket = connectedUsers.get(usuario);
@@ -71,7 +90,11 @@ class CartaManager extends EventEmitter {
     }
   }
 
-  // Método para mostrar una carta
+  /**
+   * @brief Método para mostrar una carta
+   * @param socket 
+   * @param args 
+   */
   private mostrarCarta(socket: net.Socket, args: string[]) {
     const [usuario, id] = args;
     const usuarioSocket = connectedUsers.get(usuario);
@@ -82,7 +105,11 @@ class CartaManager extends EventEmitter {
     }
   }
 
-  // Método para modificar una carta
+  /**
+   * @brief Método para modificar una carta
+   * @param socket 
+   * @param args 
+   */
   private modificarCarta(socket: net.Socket, args: string[]) {
     const [usuario, id, nombre, costeMana, color, tipo, rareza, textoReglas, valorMercado, fuerza, resistencia, marcasLealtad] = args;
     const fuerzaResistencia: [number, number] | undefined = fuerza && resistencia ? [parseInt(fuerza), parseInt(resistencia)] : undefined;
@@ -96,7 +123,11 @@ class CartaManager extends EventEmitter {
     }
   }
 
-  // Método para eliminar una carta
+  /**
+   * @brief Método para eliminar una carta
+   * @param socket 
+   * @param args 
+   */
   private eliminarCarta(socket: net.Socket, args: string[]) {
     const [usuario, id] = args;
     const usuarioSocket = connectedUsers.get(usuario);
@@ -108,7 +139,11 @@ class CartaManager extends EventEmitter {
     }
   }
 
-  // Método para enviar un mensaje al cliente
+  /**
+   * @brief Método para enviar un mensaje al cliente
+   * @param socket 
+   * @param mensaje 
+   */
   private enviarMensaje(socket: net.Socket, mensaje: string) {
     socket.write(mensaje);
   }

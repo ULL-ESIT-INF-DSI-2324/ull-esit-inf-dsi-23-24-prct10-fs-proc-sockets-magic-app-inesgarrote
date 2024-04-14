@@ -1,4 +1,11 @@
 {
-  "entryPoints": [],
+  "entryPoints": [
+    "./src/magic/carta.ts",
+    "./src/magic/usuario.ts",
+    "./src/magic/client.ts",
+    "./src/magic/index.ts",
+    "./src/magic/server.ts",
+    
+  ],
   "out": "./docs"
 }
